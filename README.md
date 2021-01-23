@@ -4,7 +4,7 @@
 
 ## Examples
 
-```
+```JavaScript
 import MIMEParser from '@saekitominaga/mime-parser';
 
 const mimeParser = new MIMEParser('Text/HTML; Charset=utf-8');
@@ -17,7 +17,7 @@ mimeParser.getParameters(); // Map(1) { 'charset' => 'utf-8' }
 
 ## Constructor
 
-```
+```JavaScript
 new MIMEParser(inputMime: string)
 ```
 
