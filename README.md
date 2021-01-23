@@ -17,7 +17,7 @@ mimeParser.getParameters(); // Map(1) { 'charset' => 'utf-8' }
 
 ## Constructor
 
-```JavaScript
+```TypeScript
 new MIMEParser(inputMime: string)
 ```
 
