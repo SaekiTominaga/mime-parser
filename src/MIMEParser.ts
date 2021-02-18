@@ -39,7 +39,7 @@ export default class {
 			throw new Error('The `subtype` contains an invalid string.');
 		}
 
-		const parametersMap: Map<string, string> = new Map();
+		const parametersMap = new Map<string, string>();
 		if (existParameters) {
 			const parametersStartPosition = subtypeEndPosition + 1;
 
