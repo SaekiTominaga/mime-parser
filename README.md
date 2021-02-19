@@ -30,10 +30,15 @@ new MIMEParser(inputMime: string)
 
 ## Methods
 
-| Name | Returns | Description |
-|-|-|-|
-| toString() | {string} MIME type | Get the entire serialized [MIME type](https://mimesniff.spec.whatwg.org/#mime-type) string. |
-| getType() | {string} type | Get the [type](https://mimesniff.spec.whatwg.org/#type) part of MIME |
-| getSubtype() | {string} subtype | Get the [subtype](https://mimesniff.spec.whatwg.org/#subtype) part of MIME |
-| getEssence() | {string} essence | Get the [essence](https://mimesniff.spec.whatwg.org/#mime-type-essence) part (type/subtype) of MIME |
-| getParameters() | {Map<string, string>} parameters | Get the [parameters](https://mimesniff.spec.whatwg.org/#parameters) part of MIME |
+<dl>
+<dt>toString(): string</dt>
+<dd>Get the entire serialized <a href="https://mimesniff.spec.whatwg.org/#mime-type">MIME type</a> string.</dd>
+<dt>getType(): string</dt>
+<dd>Get the <a href="https://mimesniff.spec.whatwg.org/#type">type</a> part of MIME.</dd>
+<dt>getSubtype(): string</dt>
+<dd>Get the <a href="https://mimesniff.spec.whatwg.org/#subtype">subtype</a> part of MIME.</dd>
+<dt>getEssence(): string</dt>
+<dd>Get the <a href="https://mimesniff.spec.whatwg.org/#mime-type-essence">essence</a> part (type/subtype) of MIME.</dd>
+<dt>getParameters(): Map&lt;string, string&gt;</dt>
+<dd>Get the <a href="https://mimesniff.spec.whatwg.org/#parameters">parameters</a> part of MIME.</dd>
+</dl>
