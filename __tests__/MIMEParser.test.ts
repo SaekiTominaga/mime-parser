@@ -1,4 +1,4 @@
-import MIMEParser from '../dist/MIMEParser.js';
+import MIMEParser from '../src/MIMEParser';
 
 describe('パラメーターなし', () => {
 	const mimeParser = new MIMEParser('text/html');
@@ -105,15 +105,17 @@ describe('invalid', () => {
 });
 
 describe('HTTP quoted string', () => {
-	const mimeParser = new MIMEParser('*/*');
 
 	test('1', () => {
-		expect(mimeParser._collectHTTPQuotedString('"\\')).toBe('\\');
+		const mimeParser = new MIMEParser('*/*; foo="\\');
+		expect(mimeParser.getParameters().get('foo')).toBe('\\');
 	});
 	test('2', () => {
-		expect(mimeParser._collectHTTPQuotedString('"Hello" World')).toBe('Hello');
+		const mimeParser = new MIMEParser('*/*; foo="Hello" World');
+		expect(mimeParser.getParameters().get('foo')).toBe('Hello');
 	});
 	test('3', () => {
-		expect(mimeParser._collectHTTPQuotedString('"Hello \\\\ World\\""')).toBe('Hello \\ World"');
+		const mimeParser = new MIMEParser('*/*; foo="Hello \\\\ World\\""');
+		expect(mimeParser.getParameters().get('foo')).toBe('Hello \\ World"');
 	});
 });
