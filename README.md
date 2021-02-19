@@ -1,6 +1,8 @@
 # Parsing a MIME type
 
 [![npm version](https://badge.fury.io/js/%40saekitominaga%2Fmime-parser.svg)](https://badge.fury.io/js/%40saekitominaga%2Fmime-parser)
+[![Build Status](https://www.travis-ci.com/SaekiTominaga/mime-parser.svg)](https://www.travis-ci.com/SaekiTominaga/mime-parser)
+[![Coverage Status](https://coveralls.io/repos/github/SaekiTominaga/mime-parser/badge.svg)](https://coveralls.io/github/SaekiTominaga/mime-parser)
 
 ## Examples
 
