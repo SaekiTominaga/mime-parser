@@ -32,7 +32,9 @@ export default class {
 
 		const subtypeEndPosition = inputMimeTrim.indexOf(this.#SEPARATOR_PARAMETERS);
 		const existParameters = subtypeEndPosition !== -1;
-		const subtype = existParameters ? inputMimeTrim.substring(subtypeStartPosition, subtypeEndPosition).trimEnd() : inputMimeTrim.substring(subtypeStartPosition);
+		const subtype = existParameters
+			? inputMimeTrim.substring(subtypeStartPosition, subtypeEndPosition).trimEnd()
+			: inputMimeTrim.substring(subtypeStartPosition);
 		if (subtype === '') {
 			throw new Error('The `subtype` is the empty string.');
 		} else if (!this._solelyContainHTTPTokenCodePoints(subtype)) {
@@ -135,6 +137,17 @@ export default class {
 	 */
 	getParameters(): Map<string, string> {
 		return this.#parameters;
+	}
+
+	/**
+	 * Get the value of `parameters` associated with the specified key of MIME
+	 *
+	 * @param {string} key - Key of the parameter
+	 *
+	 * @returns {string | undefined} The value of parameter associated with the specified key (e.g. 'utf-8')
+	 */
+	getParameter(key: string): string | undefined {
+		return this.#parameters.get(key);
 	}
 
 	/**

@@ -15,6 +15,8 @@ mimeParser.getType(); // 'text'
 mimeParser.getSubtype(); // 'html'
 mimeParser.getEssence(); // 'text/html'
 mimeParser.getParameters(); // Map(1) { 'charset' => 'utf-8' }
+mimeParser.getParameter('charset'); // 'utf-8'
+mimeParser.getParameter('foo'); // undefined
 ```
 
 ## Constructor
@@ -43,4 +45,6 @@ new MIMEParser(inputMime: string)
 <dd>Get the <a href="https://mimesniff.spec.whatwg.org/#mime-type-essence">essence</a> part (type/subtype) of MIME.</dd>
 <dt>getParameters(): Map&lt;string, string&gt;</dt>
 <dd>Get the <a href="https://mimesniff.spec.whatwg.org/#parameters">parameters</a> part of MIME.</dd>
+<dt>getParameter(key: string): string | undefined</dt>
+<dd>Get the value of <a href="https://mimesniff.spec.whatwg.org/#parameters">parameters</a> associated with the specified key of MIME.</dd>
 </dl>

@@ -38,6 +38,14 @@ export default class {
      */
     getParameters(): Map<string, string>;
     /**
+     * Get the value of `parameters` associated with the specified key of MIME
+     *
+     * @param {string} key - Key of the parameter
+     *
+     * @returns {string | undefined} The value of parameter associated with the specified key (e.g. 'utf-8')
+     */
+    getParameter(key: string): string | undefined;
+    /**
      * 文字列が HTTP token code point <https://mimesniff.spec.whatwg.org/#http-token-code-point> のみで構成されているか
      *
      * @param {string} value - 調査する文字列

@@ -15,6 +15,9 @@ describe('パラメーターなし', () => {
 	test('parameters', () => {
 		expect(mimeParser.getParameters().size).toBe(0);
 	});
+	test('parameter', () => {
+		expect(mimeParser.getParameter('foo')).toBeUndefined();
+	});
 	test('MIME', () => {
 		expect(mimeParser.toString()).toBe('text/html');
 	});
@@ -33,9 +36,15 @@ describe('パラメーターあり', () => {
 		expect(mimeParser.getEssence()).toBe('text/html');
 	});
 	test('parameters', () => {
-		const parameters = new Map();
+		const parameters = new Map<string, string>();
 		parameters.set('charset', 'utf-8');
 		expect(mimeParser.getParameters()).toEqual(parameters);
+	});
+	test('parameter', () => {
+		expect(mimeParser.getParameter('charset')).toBe('utf-8');
+	});
+	test('parameter （存在しないキー）', () => {
+		expect(mimeParser.getParameter('foo')).toBeUndefined();
 	});
 	test('MIME', () => {
 		expect(mimeParser.toString()).toBe('text/html;charset=utf-8');
@@ -55,11 +64,14 @@ describe('パラメーター複数', () => {
 		expect(mimeParser.getEssence()).toBe('text/html');
 	});
 	test('parameters', () => {
-		const parameters = new Map();
+		const parameters = new Map<string, string>();
 		parameters.set('charset', 'UTF-8');
 		parameters.set('foo', 'hoge');
 		parameters.set('bar', 'piyo@');
 		expect(mimeParser.getParameters()).toEqual(parameters);
+	});
+	test('parameter', () => {
+		expect(mimeParser.getParameter('charset')).toBe('UTF-8');
 	});
 	test('MIME', () => {
 		expect(mimeParser.toString()).toBe('text/html;charset=UTF-8;foo=hoge;bar="piyo@"');
@@ -105,7 +117,6 @@ describe('invalid', () => {
 });
 
 describe('HTTP quoted string', () => {
-
 	test('1', () => {
 		const mimeParser = new MIMEParser('*/*; foo="\\');
 		expect(mimeParser.getParameters().get('foo')).toBe('\\');

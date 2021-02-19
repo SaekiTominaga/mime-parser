@@ -41,7 +41,9 @@ export default class {
         const subtypeStartPosition = typeEndPosition + 1;
         const subtypeEndPosition = inputMimeTrim.indexOf(__classPrivateFieldGet(this, _SEPARATOR_PARAMETERS));
         const existParameters = subtypeEndPosition !== -1;
-        const subtype = existParameters ? inputMimeTrim.substring(subtypeStartPosition, subtypeEndPosition).trimEnd() : inputMimeTrim.substring(subtypeStartPosition);
+        const subtype = existParameters
+            ? inputMimeTrim.substring(subtypeStartPosition, subtypeEndPosition).trimEnd()
+            : inputMimeTrim.substring(subtypeStartPosition);
         if (subtype === '') {
             throw new Error('The `subtype` is the empty string.');
         }
@@ -130,6 +132,16 @@ export default class {
      */
     getParameters() {
         return __classPrivateFieldGet(this, _parameters);
+    }
+    /**
+     * Get the value of `parameters` associated with the specified key of MIME
+     *
+     * @param {string} key - Key of the parameter
+     *
+     * @returns {string | undefined} The value of parameter associated with the specified key (e.g. 'utf-8')
+     */
+    getParameter(key) {
+        return __classPrivateFieldGet(this, _parameters).get(key);
     }
     /**
      * 文字列が HTTP token code point <https://mimesniff.spec.whatwg.org/#http-token-code-point> のみで構成されているか
